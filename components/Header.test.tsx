@@ -23,9 +23,9 @@ describe('Header', () => {
   it('mobile menu is closed by default and opens on toggle click', () => {
     renderHeader();
     const nav = screen.getByRole('navigation');
-    expect(nav.className).not.toContain('flex');
+    expect(nav.className).toContain('hidden');
     fireEvent.click(screen.getByLabelText('Toggle menu'));
-    expect(screen.getByRole('navigation').className).toContain('flex');
+    expect(screen.getByRole('navigation').className).not.toContain('hidden');
   });
 
   it('renders an Enquire Now button', () => {

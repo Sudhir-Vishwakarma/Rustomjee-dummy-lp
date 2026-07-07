@@ -25,8 +25,8 @@ export default function Header() {
         <nav
           role="navigation"
           className={`${
-            menuOpen ? 'flex flex-col md:static md:flex md:flex-row' : 'hidden md:static'
-          } absolute left-0 top-full w-full gap-4 bg-sand p-4 shadow-md md:w-auto md:items-center md:p-0 md:shadow-none`}
+            menuOpen ? 'flex' : 'hidden'
+          } absolute left-0 top-full w-full flex-col gap-4 bg-sand p-4 shadow-md md:static md:flex md:flex-row md:w-auto md:items-center md:p-0 md:shadow-none`}
         >
           {navLinks.map((link) => (
             <a
