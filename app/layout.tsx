@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 const fraunces = Fraunces({
@@ -29,6 +30,12 @@ export default function RootLayout({
     <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body className="font-sans bg-sand text-navy scroll-smooth">
         {children}
+        <Script
+          async
+          src="https://db.brewhouse.realatte.com/api/chatbot/widget.js"
+          data-chatbot="cbk_pub_2e17e4f42f1685458509e80f"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
