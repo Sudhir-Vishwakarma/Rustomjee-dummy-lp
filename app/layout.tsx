@@ -33,7 +33,7 @@ export default function RootLayout({
         <Script
           async
           src="https://db.brewhouse.realatte.com/api/chatbot/widget.js"
-          data-chatbot="cbk_pub_2e17e4f42f1685458509e80f"
+          data-chatbot="cbk_pub_cf42b8b02d6efca09cfee421"
           strategy="afterInteractive"
         />
       </body>
