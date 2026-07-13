@@ -14,7 +14,8 @@ export default function MobileStickyBar() {
     function handleScroll() {
       setVisible(shouldShowStickyBar(window.scrollY, HERO_HEIGHT));
     }
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

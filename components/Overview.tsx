@@ -1,6 +1,7 @@
 'use client';
 
-import { overviewStats } from '@/lib/content';
+import Image from 'next/image';
+import { overviewImages, overviewStats } from '@/lib/content';
 import { useModal } from '@/lib/modal-context';
 
 export default function Overview() {
@@ -13,6 +14,19 @@ export default function Overview() {
         A rare address rising above the city, offering panoramic sea views and amenities spread
         across three levels.
       </p>
+
+      <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {overviewImages.map((src, index) => (
+          <div key={src} className="relative h-56 w-full overflow-hidden rounded-lg md:h-72">
+            <Image
+              src={src}
+              alt={`Lifestyle interior view ${index + 1}`}
+              fill
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
 
       <dl className="mt-8 grid grid-cols-2 gap-6 md:grid-cols-5">
         {overviewStats.map((stat) => (

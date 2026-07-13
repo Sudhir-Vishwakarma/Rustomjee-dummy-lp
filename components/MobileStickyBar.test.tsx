@@ -23,4 +23,10 @@ describe('MobileStickyBar', () => {
     fireEvent.scroll(window);
     expect(screen.getByTestId('sticky-bar').className).not.toContain('translate-y-full');
   });
+
+  it('is visible immediately on mount when already scrolled past the hero', () => {
+    Object.defineProperty(window, 'scrollY', { value: 900, writable: true });
+    renderBar();
+    expect(screen.getByTestId('sticky-bar').className).not.toContain('translate-y-full');
+  });
 });

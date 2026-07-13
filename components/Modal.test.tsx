@@ -43,4 +43,29 @@ describe('Modal', () => {
     fireEvent.keyDown(document, { key: 'Escape' });
     expect(onClose).toHaveBeenCalledOnce();
   });
+
+  it('moves focus to the close button when it opens', () => {
+    render(
+      <Modal isOpen={true} onClose={() => {}} title="Test">
+        <p>content</p>
+      </Modal>
+    );
+    expect(document.activeElement).toBe(screen.getByLabelText('Close'));
+  });
+
+  it('locks body scroll while open and restores it on close', () => {
+    const { rerender } = render(
+      <Modal isOpen={true} onClose={() => {}} title="Test">
+        <p>content</p>
+      </Modal>
+    );
+    expect(document.body.style.overflow).toBe('hidden');
+
+    rerender(
+      <Modal isOpen={false} onClose={() => {}} title="Test">
+        <p>content</p>
+      </Modal>
+    );
+    expect(document.body.style.overflow).not.toBe('hidden');
+  });
 });

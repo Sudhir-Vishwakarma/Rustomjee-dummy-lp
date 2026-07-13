@@ -7,6 +7,9 @@ import {
   galleryImages,
   connectivityCategories,
   faqItems,
+  heroImage,
+  locationMapImage,
+  overviewImages,
 } from './content';
 
 describe('content data', () => {
@@ -51,5 +54,22 @@ describe('content data', () => {
 
   it('has 4 faq items', () => {
     expect(faqItems).toHaveLength(4);
+  });
+
+  it('has a non-empty hero image url', () => {
+    expect(typeof heroImage).toBe('string');
+    expect(heroImage.startsWith('https://images.unsplash.com/')).toBe(true);
+  });
+
+  it('has a non-empty location map image url', () => {
+    expect(typeof locationMapImage).toBe('string');
+    expect(locationMapImage.startsWith('https://images.unsplash.com/')).toBe(true);
+  });
+
+  it('has at least one overview image, all valid unsplash urls', () => {
+    expect(overviewImages.length).toBeGreaterThan(0);
+    for (const src of overviewImages) {
+      expect(src.startsWith('https://images.unsplash.com/')).toBe(true);
+    }
   });
 });
