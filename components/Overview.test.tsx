@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Overview from './Overview';
 import { ModalProvider, useModal } from '@/lib/modal-context';
-import { overviewStats } from '@/lib/content';
+import { overviewImages, overviewStats } from '@/lib/content';
 
 function Probe() {
   const { activeModal } = useModal();
@@ -18,6 +18,17 @@ describe('Overview', () => {
     );
     for (const stat of overviewStats) {
       expect(screen.getByText(stat.value)).toBeInTheDocument();
+    }
+  });
+
+  it('renders lifestyle imagery', () => {
+    render(
+      <ModalProvider>
+        <Overview />
+      </ModalProvider>
+    );
+    for (let i = 0; i < overviewImages.length; i++) {
+      expect(screen.getByAltText(`Lifestyle interior view ${i + 1}`)).toBeInTheDocument();
     }
   });
 

@@ -15,6 +15,7 @@ import Footer from '@/components/Footer';
 import MobileStickyBar from '@/components/MobileStickyBar';
 import Modal from '@/components/Modal';
 import LeadForm from '@/components/LeadForm';
+import FadeInSection from '@/components/FadeInSection';
 import { ModalProvider, useModal } from '@/lib/modal-context';
 import { faqItems } from '@/lib/content';
 
@@ -41,25 +42,43 @@ export default function Page() {
     <ModalProvider>
       <Header />
       <main>
-        <Hero />
-        <Overview />
-        <section id="configuration" className="mx-auto max-w-6xl px-4 py-16">
-          <h2 className="font-display text-3xl text-navy">Configuration</h2>
-          <div className="mt-8">
-            <ConfigurationTabs />
-          </div>
-        </section>
-        <AmenitiesGrid />
-        <Gallery />
-        <About />
-        <Connectivity />
-        <section id="faq" className="mx-auto max-w-4xl px-4 py-16">
-          <h2 className="font-display text-3xl text-navy">FAQ</h2>
-          <div className="mt-8">
-            <FaqAccordion items={faqItems} />
-          </div>
-        </section>
-        <GetInTouch />
+        <FadeInSection>
+          <Hero />
+        </FadeInSection>
+        <FadeInSection>
+          <Overview />
+        </FadeInSection>
+        <FadeInSection>
+          <section id="configuration" className="mx-auto max-w-6xl px-4 py-16">
+            <h2 className="font-display text-3xl text-navy">Configuration</h2>
+            <div className="mt-8">
+              <ConfigurationTabs />
+            </div>
+          </section>
+        </FadeInSection>
+        <FadeInSection>
+          <AmenitiesGrid />
+        </FadeInSection>
+        <FadeInSection>
+          <Gallery />
+        </FadeInSection>
+        <FadeInSection>
+          <About />
+        </FadeInSection>
+        <FadeInSection>
+          <Connectivity />
+        </FadeInSection>
+        <FadeInSection>
+          <section id="faq" className="mx-auto max-w-4xl px-4 py-16">
+            <h2 className="font-display text-3xl text-navy">FAQ</h2>
+            <div className="mt-8">
+              <FaqAccordion items={faqItems} />
+            </div>
+          </section>
+        </FadeInSection>
+        <FadeInSection>
+          <GetInTouch />
+        </FadeInSection>
       </main>
       <ReraFooter />
       <Footer />

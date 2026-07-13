@@ -1,3 +1,14 @@
+export const heroImage: string =
+  'https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=1600&q=80';
+
+export const locationMapImage: string =
+  'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80';
+
+export const overviewImages: string[] = [
+  'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1600&q=80',
+  'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1600&q=80',
+];
+
 export type NavLink = { label: string; href: string };
 
 export const navLinks: NavLink[] = [

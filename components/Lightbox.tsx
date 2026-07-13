@@ -23,6 +23,15 @@ export default function Lightbox({ images, openIndex, onClose, onNavigate }: Lig
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [openIndex, onClose]);
 
+  useEffect(() => {
+    if (openIndex === null) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [openIndex]);
+
   if (openIndex === null) return null;
 
   const current = images[openIndex];
@@ -31,6 +40,7 @@ export default function Lightbox({ images, openIndex, onClose, onNavigate }: Lig
     <div
       role="dialog"
       aria-modal="true"
+      aria-label="Image viewer"
       className="fixed inset-0 z-50 flex items-center justify-center bg-navy/90 p-4"
       onClick={onClose}
     >

@@ -16,4 +16,9 @@ describe('Connectivity', () => {
     expect(screen.getByText(/Matunga Station/)).toBeInTheDocument();
     expect(screen.getByText(/0.6 km/)).toBeInTheDocument();
   });
+
+  it('renders a map graphic', () => {
+    render(<Connectivity />);
+    expect(screen.getByAltText('Map of the neighbourhood')).toBeInTheDocument();
+  });
 });

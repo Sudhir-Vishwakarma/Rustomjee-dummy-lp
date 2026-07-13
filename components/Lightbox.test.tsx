@@ -43,4 +43,21 @@ describe('Lightbox', () => {
     fireEvent.keyDown(document, { key: 'Escape' });
     expect(onClose).toHaveBeenCalledOnce();
   });
+
+  it('has an accessible name for the dialog', () => {
+    render(<Lightbox images={images} openIndex={0} onClose={() => {}} onNavigate={() => {}} />);
+    expect(screen.getByRole('dialog', { name: 'Image viewer' })).toBeInTheDocument();
+  });
+
+  it('locks body scroll while open and restores it on close', () => {
+    const { rerender } = render(
+      <Lightbox images={images} openIndex={0} onClose={() => {}} onNavigate={() => {}} />
+    );
+    expect(document.body.style.overflow).toBe('hidden');
+
+    rerender(
+      <Lightbox images={images} openIndex={null} onClose={() => {}} onNavigate={() => {}} />
+    );
+    expect(document.body.style.overflow).not.toBe('hidden');
+  });
 });

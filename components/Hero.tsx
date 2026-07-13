@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import LeadForm from './LeadForm';
-import { unitConfigurations } from '@/lib/content';
+import { heroImage } from '@/lib/content';
 
 export default function Hero() {
   return (
     <section id="home" className="relative flex min-h-[640px] items-center pt-24 text-sand">
       <Image
-        src={unitConfigurations[0].image}
+        src={heroImage}
         alt="Sea-facing tower exterior"
         fill
         priority
